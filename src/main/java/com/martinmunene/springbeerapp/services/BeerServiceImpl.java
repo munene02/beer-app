@@ -1,5 +1,6 @@
 package com.martinmunene.springbeerapp.services;
 
+import com.martinmunene.springbeerapp.controller.NotFoundException;
 import com.martinmunene.springbeerapp.model.BeerDTO;
 import com.martinmunene.springbeerapp.model.BeerStyle;
 import lombok.extern.slf4j.Slf4j;
@@ -94,12 +95,14 @@ public class BeerServiceImpl implements BeerService {
     }
 
     @Override
-    public void updateBeerById(UUID beerId, BeerDTO beer) {
+    public Optional<BeerDTO> updateBeerById(UUID beerId, BeerDTO beer) {
         BeerDTO existing = beerMap.get(beerId);
         existing.setBeerName(beer.getBeerName());
         existing.setPrice(beer.getPrice());
         existing.setUpc(beer.getUpc());
         existing.setQuantityOnHand(beer.getQuantityOnHand());
+
+        return Optional.of(existing);
     }
 
     @Override
@@ -108,7 +111,7 @@ public class BeerServiceImpl implements BeerService {
     }
 
     @Override
-    public BeerDTO getBeerById(UUID id) {
+    public Optional<BeerDTO> getBeerById(UUID id) {
 
 
         log.debug("Get Beer by Id - in service. Id: " + id.toString());
