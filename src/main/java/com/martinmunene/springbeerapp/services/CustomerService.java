@@ -10,7 +10,7 @@ import java.util.UUID;
  * @author Martin Munene
  */
 public interface CustomerService {
-    CustomerDTO getCustomerById(UUID uuid);
+    Optional<CustomerDTO> getCustomerById(UUID uuid);
 
     List<CustomerDTO> getAllCustomers();
 

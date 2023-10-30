@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 /**
  * @author Martin Munene
@@ -24,12 +25,16 @@ public class BeerServiceJpa implements BeerService {
 
     @Override
     public List<BeerDTO> listBeers() {
-        return null;
+        return beerRepository.findAll()
+                .stream()
+                .map(mapper::beerToBeerDto)
+                .collect(Collectors.toList());
     }
 
     @Override
     public Optional<BeerDTO> getBeerById(UUID id) {
-        return Optional.empty();
+        return Optional.ofNullable(mapper.beerToBeerDto(beerRepository.findById(id)
+                .orElse(null)));
     }
 
     @Override

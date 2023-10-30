@@ -1,6 +1,7 @@
 package com.martinmunene.springbeerapp.services;
 
 import com.martinmunene.springbeerapp.model.CustomerDTO;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -82,8 +83,8 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public CustomerDTO getCustomerById(UUID uuid) {
-        return customerMap.get(uuid);
+    public Optional<CustomerDTO> getCustomerById(UUID uuid) {
+        return Optional.of(customerMap.get(uuid));
     }
 
     @Override
