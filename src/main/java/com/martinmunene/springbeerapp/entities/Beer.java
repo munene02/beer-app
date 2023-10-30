@@ -1,9 +1,7 @@
 package com.martinmunene.springbeerapp.entities;
 
 import com.martinmunene.springbeerapp.model.BeerStyle;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Version;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -21,6 +19,8 @@ import java.util.UUID;
 @AllArgsConstructor
 public class Beer {
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(length=36, columnDefinition = "varchar", updatable =false, nullable = false)
     private UUID id;
     @Version
     private Integer version;

@@ -12,12 +12,12 @@ import java.util.UUID;
 public interface BeerService {
     List<BeerDTO> listBeers();
 
-    BeerDTO getBeerById(UUID id);
+    Optional<BeerDTO> getBeerById(UUID id);
 
 
     BeerDTO saveNewBeer(BeerDTO beer);
 
-    void updateBeerById(UUID beerId, BeerDTO beer);
+    Optional<BeerDTO> updateBeerById(UUID beerId, BeerDTO beer);
 
     void deleteById(UUID beerId);
 
