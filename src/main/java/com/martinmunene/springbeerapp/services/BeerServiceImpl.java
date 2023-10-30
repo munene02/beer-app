@@ -1,6 +1,5 @@
 package com.martinmunene.springbeerapp.services;
 
-import com.martinmunene.springbeerapp.controller.NotFoundException;
 import com.martinmunene.springbeerapp.model.BeerDTO;
 import com.martinmunene.springbeerapp.model.BeerStyle;
 import lombok.extern.slf4j.Slf4j;
@@ -90,8 +89,9 @@ public class BeerServiceImpl implements BeerService {
     }
 
     @Override
-    public void deleteById(UUID beerId) {
+    public boolean deleteById(UUID beerId) {
         beerMap.remove(beerId);
+        return true;
     }
 
     @Override
