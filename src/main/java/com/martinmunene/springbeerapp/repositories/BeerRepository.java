@@ -10,6 +10,6 @@ import java.util.UUID;
  * @author Martin Munene
  */
 
-@Repository
+
 public interface BeerRepository extends JpaRepository<Beer, UUID> {
 }
