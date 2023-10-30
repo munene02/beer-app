@@ -3,19 +3,25 @@ package com.martinmunene.springbeerapp.model;
 import lombok.Builder;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 /**
  * @author Martin Munene
  */
-@Data
-@Builder
-public class Customer {
 
-    private String name;
+@Builder
+@Data
+public class BeerDTO {
     private UUID id;
     private Integer version;
+    private String beerName;
+    private BeerStyle beerStyle;
+    private String upc;
+    private Integer quantityOnHand;
+    private BigDecimal price;
     private LocalDateTime createdDate;
     private LocalDateTime updateDate;
 }
+

@@ -1,6 +1,6 @@
 package com.martinmunene.springbeerapp.services;
 
-import com.martinmunene.springbeerapp.model.Beer;
+import com.martinmunene.springbeerapp.model.BeerDTO;
 
 import java.util.List;
 import java.util.UUID;
@@ -9,15 +9,15 @@ import java.util.UUID;
  * @author Martin Munene
  */
 public interface BeerService {
-    List<Beer> listBeers();
+    List<BeerDTO> listBeers();
 
-    Beer getBeerById(UUID id);
+    BeerDTO getBeerById(UUID id);
 
-    Beer saveNewBeer(Beer beer);
+    BeerDTO saveNewBeer(BeerDTO beer);
 
-    void updateBeerById(UUID beerId, Beer beer);
+    void updateBeerById(UUID beerId, BeerDTO beer);
 
     void deleteById(UUID beerId);
 
-    void patchBeerById(UUID beerId, Beer beer);
+    void patchBeerById(UUID beerId, BeerDTO beer);
 }

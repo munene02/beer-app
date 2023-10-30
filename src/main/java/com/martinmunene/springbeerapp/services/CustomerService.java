@@ -1,6 +1,6 @@
 package com.martinmunene.springbeerapp.services;
 
-import com.martinmunene.springbeerapp.model.Customer;
+import com.martinmunene.springbeerapp.model.CustomerDTO;
 
 import java.util.List;
 import java.util.UUID;
@@ -9,15 +9,15 @@ import java.util.UUID;
  * @author Martin Munene
  */
 public interface CustomerService {
-    Customer getCustomerById(UUID uuid);
+    CustomerDTO getCustomerById(UUID uuid);
 
-    List<Customer> getAllCustomers();
+    List<CustomerDTO> getAllCustomers();
 
-    Customer saveNewCustomer(Customer customer);
+    CustomerDTO saveNewCustomer(CustomerDTO customer);
 
-    void updateCustomerById(UUID customerId, Customer customer);
+    void updateCustomerById(UUID customerId, CustomerDTO customer);
 
     void deleteCustomerById(UUID customerId);
 
-    void patchCustomerById(UUID customerId, Customer customer);
+    void patchCustomerById(UUID customerId, CustomerDTO customer);
 }
