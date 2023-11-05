@@ -5,5 +5,5 @@ package com.martinmunene.springbeerapp.model;
  */
 
 public enum BeerStyle {
-    LAGER, PILSNER, STOUT, GOSE, PORTER, ALE, WHEAT, IPA, PALE_ALE, SAISON
+    LAGER, STOUT, GOSE, PORTER, ALE, GUINNESS, IPA, PALE_ALE, SAISON, NON_ALCOHOLIC
 }
