@@ -2,8 +2,8 @@ package com.martinmunene.springbeerapp.services;
 
 import com.martinmunene.springbeerapp.model.BeerDTO;
 import com.martinmunene.springbeerapp.model.BeerStyle;
+import org.springframework.data.domain.Page;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -11,7 +11,7 @@ import java.util.UUID;
  * @author Martin Munene
  */
 public interface BeerService {
-    List<BeerDTO> listBeers(String beerName, BeerStyle beerStyle, Boolean showInventory);
+    Page<BeerDTO> listBeers(String beerName, BeerStyle beerStyle, Boolean showInventory, Integer pageNumber, Integer pageSize);
 
     Optional<BeerDTO> getBeerById(UUID id);
 
@@ -20,7 +20,7 @@ public interface BeerService {
 
     Optional<BeerDTO> updateBeerById(UUID beerId, BeerDTO beer);
 
-    boolean deleteById(UUID beerId);
+    Boolean deleteById(UUID beerId);
 
     Optional<BeerDTO> patchBeerById(UUID beerId, BeerDTO beer);
 }
