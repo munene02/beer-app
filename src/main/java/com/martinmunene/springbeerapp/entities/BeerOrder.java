@@ -18,9 +18,16 @@ import java.util.UUID;
 @Setter
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
 @Builder
 public class BeerOrder {
+    public BeerOrder(UUID id, Long version, Timestamp createdDate, Timestamp lastModifiedDate, String customerRef, Customer customer) {
+        this.id = id;
+        this.version = version;
+        this.createdDate = createdDate;
+        this.lastModifiedDate = lastModifiedDate;
+        this.customerRef = customerRef;
+        this.setCustomer(customer);
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -43,6 +50,11 @@ public class BeerOrder {
     }
 
     private String customerRef;
+
+    public void setCustomer(Customer customer){
+        this.customer = customer;
+        customer.getBeerOrders().add(this);
+    }
 
     @ManyToOne
     private Customer customer;
