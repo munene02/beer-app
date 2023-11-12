@@ -2,6 +2,7 @@ package com.martinmunene.springbeerapp.repositories;
 
 import com.martinmunene.springbeerapp.entities.Beer;
 import com.martinmunene.springbeerapp.entities.BeerOrder;
+import com.martinmunene.springbeerapp.entities.BeerOrderShipment;
 import com.martinmunene.springbeerapp.entities.Customer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -40,6 +41,9 @@ class BeerOrderRepositoryTest {
     void testBeersOrders(){
         BeerOrder beerOrder = BeerOrder.builder()
                 .customer(customer)
+                .beerOrderShipment(BeerOrderShipment.builder()
+                        .trackingNumber("12345r")
+                        .build())
                 .customerRef("Test Order")
                 .build();
 
