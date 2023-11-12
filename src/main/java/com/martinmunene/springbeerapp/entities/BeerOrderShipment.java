@@ -20,8 +20,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Entity
 @Builder
-public class BeerOrderLine {
-
+public class BeerOrderShipment {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @JdbcTypeCode(SqlTypes.CHAR)
@@ -31,23 +30,20 @@ public class BeerOrderLine {
     @Version
     private Long version;
 
+    @OneToOne
+    private BeerOrder beerOrder;
+
+    private String trackingNumber;
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
     @CreationTimestamp
     @Column(updatable = false)
     private Timestamp createdDate;
 
     @UpdateTimestamp
     private Timestamp lastModifiedDate;
-
-    public boolean isNew() {
-        return this.id == null;
-    }
-
-    @ManyToOne
-    private BeerOrder beerOrder;
-
-    @ManyToOne
-    private Beer beer;
-
-    private Integer orderQuantity = 0;
-    private Integer quantityAllocated = 0;
 }
